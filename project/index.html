@@ -8,5 +8,22 @@
 </head>
 <body>
     <h1>project index.html update 2 update</h1>
+    <script type="text/javascript">
+		const init = () => {
+			native.closeScreen()
+		}
+		const native = {
+			closeScreen(){
+				if(window.plus){
+					plus.navigator.closeSplashscreen()
+				}else{
+					alert('当前环境不支持关闭启动界面')
+				}
+			}
+		}
+        ;(()=> {
+			init()
+		})()
+    </script>
 </body>
 </html>
