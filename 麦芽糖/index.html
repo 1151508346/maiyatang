@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <iframe id='iframeContainer' src="" frameborder="0"></iframe>
+	<script type="text/javascript">
+		const init = () => {
+			addUrlToIframe()
+		}
+		const addUrlToIframe = () => {
+			// github maiyantang resposity address
+			let url = 'https://1151508346.github.io/maiyatang/project/index.html'
+			const random = String(Math.random() * 10000) 
+			const iframe = document.getElementById('iframeContainer')
+			url = `${url}?random=${random}`
+			console.log(url)
+			iframe.setAttribute('src',url)
+		}
+		// enter
+		;(()=> {
+			init();
+		})()
+		
+		
+		
+		
+	</script>
+</body>
+</html>
