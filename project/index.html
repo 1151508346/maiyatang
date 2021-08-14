@@ -14,11 +14,14 @@
 		}
 		const native = {
 			closeScreen(){
-				if(window.plus){
-					plus.navigator.closeSplashscreen()
-				}else{
-					alert('当前环境不支持关闭启动界面')
-				}
+				document.addEventListener('plusready',()=> {
+					if(window.plus){
+						plus.navigator.closeSplashscreen()
+					}else{
+						alert('当前环境不支持关闭启动界面')
+					}
+				})
+				
 			}
 		}
         ;(()=> {
