@@ -32,7 +32,7 @@
         };
     },
     //设置系统状态栏背景色
-    setBarBackground(color='transparent'){
+    setBarBackground(color){
         document.addEventListener('plusready',function(){
             if(window.plus){
                 plus.navigator.setStatusBarBackground(color)
