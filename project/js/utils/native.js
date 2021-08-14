@@ -3,7 +3,7 @@
  */
 
 const native = {
-    plusReady(callback = function () { }) {
+    plusReady(callback) {
         document.addEventListener('plusready', function () {
             if (window.plus) {
                 callback && callback()
