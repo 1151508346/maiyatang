@@ -4,7 +4,6 @@
 
 const native = {
     plusReady(callback = function () { }) {
-		console.log('plusReady')
         document.addEventListener('plusready', function () {
             if (window.plus) {
                 callback && callback()
@@ -40,12 +39,12 @@ const native = {
         };
     },
     //设置系统状态栏背景色
-    setBarBackground(color = '#ffffff') {
+    setBarBackground(color = 'dark') {
         this.plusReady(function () {
             plus.navigator.setStatusBarBackground(color)
         })
     },
-    setBarStyle(color = 'dark') {
+    setBarStyle(color = '#ffffff') {
         this.plusReady(function () {
             plus.navigator.setStatusBarStyle(color)
         })
