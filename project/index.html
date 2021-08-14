@@ -21,11 +21,7 @@
 		const init = () => {
 			native.closeScreen()
 			native.setBarBackground('#ffffff')
-			document.addEventListener('plusready',function(){
-				if(window.plus){
-					plus.navigator.setStatusBarStyle('dark')
-				}
-			})
+			native.setBarStyle('dark')
 		}
 		; (() => {
 			init()
