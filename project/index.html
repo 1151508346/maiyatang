@@ -20,7 +20,12 @@
 	<script type="text/javascript">
 		const init = () => {
 			native.closeScreen()
-			native.setBarBackground('#000000')
+			native.setBarBackground('#ffffff')
+			document.addEventListener('plusready',function(){
+				if(window.plus){
+					plus.navigator.setStatusBarStyle('dark')
+				}
+			})
 		}
 		; (() => {
 			init()
