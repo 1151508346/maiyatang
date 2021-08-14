@@ -105,6 +105,13 @@
 						}
 					}
 				};
+			},
+			setBarBackground(){
+				document.addEventListener('plusready',function(){
+					if(window.plus){
+						plus.navigator.setStatusBarBackground('transparent')
+					}
+				})
 			}
 		}
 		; (() => {
