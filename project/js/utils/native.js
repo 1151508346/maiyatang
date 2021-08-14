@@ -3,13 +3,6 @@
  */
 
 const native = {
-    plusReady(callback) {
-        document.addEventListener('plusready', function () {
-            if (window.plus) {
-                callback && callback()
-            }
-        })
-    },
     //手动关闭启动屏幕
     closeScreen() {
         document.addEventListener('plusready', () => {
@@ -40,13 +33,17 @@ const native = {
     },
     //设置系统状态栏背景色
     setBarBackground(color = 'dark') {
-        this.plusReady(function () {
-            plus.navigator.setStatusBarBackground(color)
+        document.addEventListener('plusready', function () {
+            if (window.plus) {
+                plus.navigator.setStatusBarBackground(color)
+            }
         })
     },
     setBarStyle(color = '#ffffff') {
-        this.plusReady(function () {
-            plus.navigator.setStatusBarStyle(color)
+        document.addEventListener('plusready', function () {
+            if (window.plus) {
+                plus.navigator.setStatusBarStyle(color)
+            }
         })
     }
 }
