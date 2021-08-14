@@ -2,8 +2,15 @@
  * 调用andriod的原生设备
  */
 
- const native = {
-     //手动关闭启动屏幕
+const native = {
+    plusReady(callback = function () { }) {
+        document.addEventListener('plusready', function () {
+            if (window.plus) {
+                callback && callback()
+            }
+        })
+    },
+    //手动关闭启动屏幕
     closeScreen() {
         document.addEventListener('plusready', () => {
             if (window.plus) {
@@ -32,11 +39,14 @@
         };
     },
     //设置系统状态栏背景色
-    setBarBackground(color='#225aa5'){
-        document.addEventListener('plusready',function(){
-            if(window.plus){
-                plus.navigator.setStatusBarBackground(color)
-            }
+    setBarBackground(color = '#ffffff') {
+        this.plusReay(function () {
+            plus.navigator.setStatusBarBackground(color)
+        })
+    },
+    setBarStyle(color = 'dark') {
+        this.plusReady(function () {
+            plus.navigator.setStatusBarStyle(color)
         })
     }
 }
