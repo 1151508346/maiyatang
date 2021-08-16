@@ -118,7 +118,8 @@
 					toast = document.createElement('div');
 					toast.classList.add("mui-show-loading");
 					toast.classList.add('loading-visible');
-					document.body.appendChild(toast);
+					mask.appendChild(toast)
+					document.body.appendChild(mask);
 					toast.innerHTML = html;
 					toast.addEventListener("touchmove", function (e) { e.stopPropagation(); e.preventDefault(); });
 				} else {
