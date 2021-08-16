@@ -9,41 +9,68 @@
 	<script src="js/mui.min.js"></script>
 	<link href="css/mui.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="css/native.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
 	<script type="text/javascript" charset="utf-8">
 		mui.init();
 	</script>
 	<script src="js/utils/native.js"></script>
-	<style>
-		* {
-			margin: 0px;
-			padding: 0px;
-			list-style: none;
-		}
-
-		html,
-		body {
-			width: 100%;
-			height: 100%;
-		}
-
-		#iframeWrapper {
-			width: 100%;
-			height: 100%;
-		}
-	</style>
+	
 </head>
 
 <body>
-	<h1>hah</h1>
+	<div class="container">
+		<div class="mui-slider">
+		  <div class="mui-slider-group mui-slider-loop">
+		    <!--支持循环，需要重复图片节点-->
+		    <div class="tm-slider-item mui-slider-item mui-slider-item-duplicate">
+				<h1>盒子7</h1>
+			</div>
+			<div class="tm-slider-item mui-slider-item">
+				<h1>盒子1</h1>
+			</div>
+		    <div class="tm-slider-item mui-slider-item">
+				<h1>盒子2</h1>
+			</div>
+		    <div class="tm-slider-item mui-slider-item">
+				<h1>盒子3</h1>
+			</div>
+		    <div class="tm-slider-item mui-slider-item">
+				<h1>盒子4</h1>
+			</div>
+		    <div class="tm-slider-item mui-slider-item">
+				<h1>盒子5</h1>
+			</div>
+			<div class="tm-slider-item mui-slider-item">
+				<h1>盒子6</h1>
+			</div>
+			<div class="tm-slider-item mui-slider-item">
+				<h1>盒子7</h1>
+			</div>
+		    <!--支持循环，需要重复图片节点-->
+		    <div class="tm-slider-item mui-slider-item mui-slider-item-duplicate">
+				<h1>盒子1</h1>
+			</div>
+		  </div>
+		</div>
+	</div>
 	<script type="text/javascript">
 		const init = () => {
 			native.closeScreen()
 			native.setBarBackground('#ffffff')
 			native.setBarStyle('dark')
+			gallerySlider()
 		}
-			; (() => {
-				init()
-			})()
+		//轮播
+		const gallerySlider = () => {
+			const gallery = mui('.mui-slider');
+			gallery.slider({
+			  interval:0//自动轮播周期，若为0则不自动播放，默认为0；
+			});
+		}
+		
+		; (() => {
+			init()
+		})()
 	</script>
 </body>
 
