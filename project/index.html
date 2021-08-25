@@ -31,9 +31,9 @@
 		    <div class="tm-slider-item mui-slider-item" id='container-o8tv'>
 				<iframe id='container-o8tv-iframe2' src="https://app.movie/" frameborder="0"></iframe>
 			</div>
-		    <div class="tm-slider-item mui-slider-item">
+		    <!-- <div class="tm-slider-item mui-slider-item">
 				<iframe id='container-o8tv-iframe3' src="https://www.frontendjs.com/" frameborder="0"></iframe>
-			</div>
+			</div> -->
 		    <div class="tm-slider-item mui-slider-item">
 				<h1>盒子4</h1>
 			</div>
@@ -49,6 +49,8 @@
 		    <!--支持循环，需要重复图片节点-->
 		    <div class="tm-slider-item mui-slider-item mui-slider-item-duplicate">
 				<h1>盒子1</h1>
+				<div id="portrait">竖屏</div>
+				<div id="landscape">横屏</div>
 			</div>
 		  </div>
 		</div>
@@ -59,6 +61,32 @@
 			native.setBarBackground('#ffffff')
 			native.setBarStyle('dark')
 			gallerySlider()
+			const portrait = document.getElementById('portrait')
+			portrait.addEventListener('click',() => {
+				settingScreenDirection('portrait-primary')
+			})
+			const landscape = document.getElementById('landscape')
+			landscape.addEventListener('click',>() => {
+				settingScreenDirection('landscape-primary')
+			}})
+		}
+		/**
+		 * 锁定屏幕方向可取以下值： "portrait-primary": 竖屏正方向；
+			"portrait-secondary": 竖屏反方向，屏幕正方向按顺时针旋转180°；
+			"landscape-primary": 横屏正方向，屏幕正方向按顺时针旋转90°； 
+		    "landscape-secondary": 横屏方向，屏幕正方向按顺时针旋转270°；
+		    "portrait": 竖屏正方向或反方向，根据设备重力感应器自动调整；
+			"landscape": 横屏正方向或反方向，根据设备重力感应器自动调整；
+		 */
+		function plusReady(){
+			plus.screen.lockOrientation('landscape-primary');
+		}
+		const settingScreenDirection = (type) => {
+			if (window.plus) {
+			    plusReady()
+			} else{
+			    document.addEventListener('plusready',plusReady.bind(null,type),false);
+			}
 		}
 		
 		
