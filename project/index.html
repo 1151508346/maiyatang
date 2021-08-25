@@ -68,6 +68,7 @@
 			const portrait = document.getElementById('portrait')
 			portrait.addEventListener('click',() => {
 				console.log('click')
+				mui.toast('提示')
 				settingScreenDirection('portrait-primary')
 			})
 			const landscape = document.getElementById('landscape')
@@ -84,11 +85,11 @@
 		    "portrait": 竖屏正方向或反方向，根据设备重力感应器自动调整；
 			"landscape": 横屏正方向或反方向，根据设备重力感应器自动调整；
 		 */
-		function plusReady(type){
-			plus.screen.lockOrientation(type);
-		}
+		
 		const settingScreenDirection = (type) => {
-			document.addEventListener('plusready',plusReady.bind(null,type),false);
+			document.addEventListener('plusready',function(){
+				plus.screen.lockOrientation(type);
+			},false);
 		}
 		
 		
