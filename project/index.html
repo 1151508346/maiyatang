@@ -29,6 +29,14 @@
 				<div id="portrait">竖屏</div>
 				<br>
 				<div id="landscape">横屏</div>
+				<br>
+				<div id="portrait-primary">竖屏-primary</div>
+				<br>
+				<div id="landscape-primary">横屏-primary</div>
+				<br>
+				<div id="portrait-primary-window">竖屏-primary-window</div>
+				<br>
+				<div id="landscape-primary-window">横屏-primary-window</div>
 				<!-- <iframe id='container-o8tv-iframe3' src="https://www.frontendjs.com/" frameborder="0"></iframe> -->
 			</div>
 			<div class="tm-slider-item mui-slider-item">
@@ -69,13 +77,35 @@
 			portrait.addEventListener('click',() => {
 				console.log('click')
 				mui.toast('提示')
-				settingScreenDirection('portrait-primary')
+				settingScreenDirection('portrait')
 			})
 			const landscape = document.getElementById('landscape')
 			landscape.addEventListener('click',() => {
 				console.log('click')
+				settingScreenDirection('landscape')
+			})
+			const portraitP = document.getElementById('portrait-primary')
+			portraitP.addEventListener('click',() => {
+				console.log('click')
+				settingScreenDirection('portrait-primary')
+			})
+			const landscapeP = document.getElementById('landscape-primary')
+			landscapeP.addEventListener('click',() => {
+				console.log('click')
 				settingScreenDirection('landscape-primary')
 			})
+			
+			const portraitPw = document.getElementById('portrait-primary-window')
+			const landscapePw = document.getElementById('landscape-primary-window')
+			
+			portraitPw.addEventListener('click',() => {
+				window.screen.lockOrientation('portrait-primary');
+			})
+			landscapePw.addEventListener('click',() => {
+				window.screen.lockOrientation('landscape-primary');
+			})
+			
+			
 		}
 		/**
 		 * 锁定屏幕方向可取以下值： "portrait-primary": 竖屏正方向；
@@ -87,9 +117,7 @@
 		 */
 		
 		const settingScreenDirection = (type) => {
-			document.addEventListener('plusready',function(){
-				plus.screen.lockOrientation(type);
-			},false);
+			plus.screen.lockOrientation(type);
 		}
 		
 		
